@@ -1,0 +1,72 @@
+/* Print Stylesheet */
+@media print {
+    /* Hide everything except the packing list card */
+    body * {
+        visibility: hidden;
+    }
+    
+    .no-print {
+        display: none !important;
+    }
+
+    #sec-planning, #sec-planning * {
+        visibility: visible;
+    }
+
+    /* Hide all cards in planning */
+    #sec-planning .card {
+        display: none !important;
+    }
+
+    /* Specifically target the packing list card to show it */
+    #sec-planning .print-card {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        visibility: visible;
+    }
+
+    /* Make sure checklist items inside are visible */
+    #packing-list, #packing-list * {
+        visibility: visible;
+    }
+
+    /* Print Formatting */
+    body {
+        background: white;
+        padding: 0;
+    }
+    
+    .print-btn {
+        display: none !important;
+    }
+
+    .user-warning {
+        display: none !important;
+    }
+
+    h3 {
+        font-size: 24pt;
+        margin-bottom: 20px;
+        color: black !important;
+    }
+
+    .packing-group h4 {
+        font-size: 16pt;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: black !important;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .check-item {
+        margin-bottom: 10px;
+        font-size: 12pt;
+    }
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Prevent caching so updates propagate instantly -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Safari + Zanzibar Trip</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body class="theme-safari">
+
+    <!-- Header & Name Selector -->
+    <header class="top-header no-print">
+        <div class="logo">S+Z 2026</div>
+        <div class="user-selector">
+            <label for="name-select">Who's looking?</label>
+            <select id="name-select">
+                <option value="" disabled selected>Pick your name</option>
+                <!-- populated by JS -->
+            </select>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="app-content">
+        
+        <!-- SECTION: HOME -->
+        <section id="sec-home" class="view-section active">
+            <div class="hero">
+                <h1>Tanzania Adventure</h1>
+                <div class="countdown" id="countdown-timer">
+                    <span class="days">--</span> Days to go!
+                </div>
+            </div>
+            
+            <div class="route-map">
+                <h3>Our Route</h3>
+                <div class="map-placeholder">
+                    Safari (Serengeti/Ngorongoro) ✈️ Zanzibar
+                </div>
+            </div>
+
+            <div class="quick-nav">
+                <button onclick="app.navTo('logistics')">Logistics & Info</button>
+                <button onclick="app.navTo('planning')">Trip Planning</button>
+                <button onclick="app.navTo('trip')">During the Trip</button>
+                <button onclick="app.navTo('extras')">Fun Extras</button>
+            </div>
+        </section>
+
+        <!-- SECTION: LOGISTICS -->
+        <section id="sec-logistics" class="view-section">
+            <h2>Logistics & Info</h2>
+            
+            <div class="card">
+                <h3>✈️ Flights</h3>
+                <p><strong>Main Flights:</strong> [Details pending]</p>
+                <p class="highlight"><strong>Charter Flight (Safari to Zanzibar):</strong> Strictly 15kg (33 lbs) baggage limit in soft-sided bags ONLY.</p>
+            </div>
+
+            <div class="card">
+                <h3>🛏️ Lodges</h3>
+                <ul class="lodge-list">
+                    <li><strong>Safari Lodge 1:</strong> [Details]</li>
+                    <li><strong>Safari Lodge 2:</strong> [Details]</li>
+                    <li><strong>Zanzibar Hotel:</strong> [Details]</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🚨 Emergency & Money</h3>
+                <p><strong>Embassy:</strong> [Number]</p>
+                <p><strong>Insurance:</strong> [Details]</p>
+                <p><strong>Currency:</strong> Tanzanian Shilling (TZS). USD is widely accepted, but bills must be crisp and dated 2013 or newer. Tipping guides/staff is customary.</p>
+            </div>
+
+            <div class="card alert-card">
+                <h3>🦟 Malaria Reminder</h3>
+                <p>Antimalarial medication is recommended for the whole trip regardless of itinerary. Tanzania's malaria is chloroquine-resistant. Confirm the right antimalarial with your doctor before departure.</p>
+                <p><small>Tips: Use DEET repellent, wear long sleeves at dusk/dawn, sleep under provided nets.</small></p>
+            </div>
+
+            <div class="card">
+                <h3>💉 Vaccination Checklist</h3>
+                <p class="disclaimer">General reference only — confirm requirements with a travel clinic.</p>
+                <div class="user-warning needs-user">Please select your name above to save your checklist.</div>
+                <div id="vax-list" class="checklist-container"></div>
+            </div>
+        </section>
+
+        <!-- SECTION: PLANNING -->
+        <section id="sec-planning" class="view-section">
+            <h2>Planning</h2>
+
+            <div class="card">
+                <h3>💡 Activity Wishlist</h3>
+                <p class="disclaimer">Votes on this device only.</p>
+                <div class="user-warning needs-user">Please select your name above to vote or add items.</div>
+                
+                <div class="wishlist-input">
+                    <input type="text" id="wishlist-new" placeholder="Suggest an activity...">
+                    <button onclick="app.addWishlist()">Add</button>
+                </div>
+                <ul id="wishlist-items" class="wishlist"></ul>
+            </div>
+
+            <div class="card zanzibar-shift">
+                <h3>🏖️ Zanzibar Shortlist</h3>
+                <div id="znz-activities" class="list-grid"></div>
+            </div>
+
+            <div class="card zanzibar-shift">
+                <h3>🍽️ Zanzibar Restaurants</h3>
+                <div id="znz-restaurants" class="list-grid"></div>
+            </div>
+
+            <div class="card print-card">
+                <div class="flex-header">
+                    <h3>🎒 Packing List</h3>
+                    <button onclick="window.print()" class="print-btn">Print / Save PDF</button>
+                </div>
+                <div class="user-warning needs-user">Please select your name above to save your packing list.</div>
+                
+                <div id="packing-list" class="checklist-container"></div>
+            </div>
+        </section>
+
+        <!-- SECTION: DURING THE TRIP -->
+        <section id="sec-trip" class="view-section">
+            <h2>During the Trip</h2>
+
+            <div class="card">
+                <h3>🐾 Wildlife Tracker</h3>
+                <div class="user-warning needs-user">Select your name to track your sightings.</div>
+                <h4>The Big Five</h4>
+                <div id="big-five-list" class="checklist-container inline-check"></div>
+                <h4>Bonus Spots</h4>
+                <div id="bonus-wildlife-list" class="checklist-container inline-check"></div>
+            </div>
+
+            <div class="card">
+                <h3>🚙 Game Drive Log</h3>
+                <div class="user-warning needs-user">Select your name to log sightings.</div>
+                <div class="form-group">
+                    <input type="text" id="gd-animal" placeholder="What did you see?">
+                    <input type="text" id="gd-location" placeholder="Where / Time?">
+                    <button onclick="app.addGameDriveLog()">Log Sighting</button>
+                </div>
+                <ul id="game-drive-list" class="log-list"></ul>
+            </div>
+
+            <div class="card">
+                <h3>📓 Trip Journal</h3>
+                <div class="user-warning needs-user">Select your name to write in your journal.</div>
+                <div class="form-group">
+                    <textarea id="journal-text" placeholder="Jot down quick notes about today..." rows="3"></textarea>
+                    <button onclick="app.addJournalEntry()">Save Entry</button>
+                </div>
+                <ul id="journal-list" class="log-list"></ul>
+            </div>
+
+            <div class="card">
+                <h3>📸 Photo Gallery</h3>
+                <div class="photo-upload-link">
+                    <a href="#" target="_blank" class="btn-primary">📷 Upload to Shared Album</a>
+                    <p><small>(Opens Google Photos / iCloud album to upload directly from your phone)</small></p>
+                </div>
+                
+                <div class="photo-tabs">
+                    <button class="tab-btn active" onclick="app.switchPhotoTab('safari')">Safari</button>
+                    <button class="tab-btn" onclick="app.switchPhotoTab('zanzibar')">Zanzibar</button>
+                </div>
+                <div id="photo-grid" class="photo-grid">
+                    <p class="placeholder-text">Photos will be added here after the trip.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: EXTRAS -->
+        <section id="sec-extras" class="view-section">
+            <h2>Fun Extras</h2>
+
+            <div class="card">
+                <h3>🗣️ Swahili Cheat Sheet</h3>
+                <ul id="swahili-list" class="dict-list"></ul>
+            </div>
+
+            <div class="card">
+                <h3>🧠 Fun Facts</h3>
+                <ul>
+                    <li>The Serengeti hosts the largest terrestrial mammal migration in the world.</li>
+                    <li>Zanzibar is also known as the "Spice Island".</li>
+                    <li>Ngorongoro Crater is the world's largest inactive, intact, and unfilled volcanic caldera.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav no-print">
+        <a href="#home" class="nav-item active" onclick="app.navTo('home'); return false;">Home</a>
+        <a href="#logistics" class="nav-item" onclick="app.navTo('logistics'); return false;">Info</a>
+        <a href="#planning" class="nav-item" onclick="app.navTo('planning'); return false;">Plan</a>
+        <a href="#trip" class="nav-item" onclick="app.navTo('trip'); return false;">Trip</a>
+        <a href="#extras" class="nav-item" onclick="app.navTo('extras'); return false;">Extras</a>
+    </nav>
+
+    <script src="js/data.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
