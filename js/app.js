@@ -81,7 +81,7 @@ const app = {
     },
 
     goToItineraryDay(dayId) {
-        this.navTo('trip');
+        this.navTo('logistics');
         requestAnimationFrame(() => {
             const el = document.getElementById(dayId);
             if (!el) return;
