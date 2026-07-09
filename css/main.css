@@ -1,18 +1,20 @@
 :root {
     /* Safari Theme (Default) */
     --bg-color: #fcf9f2;
-    --text-color: #3b3a30;
-    --primary-color: #d35400; /* Deep Orange */
-    --secondary-color: #6d775a; /* Olive Green */
-    --card-bg: #ffffff;
-    --accent-color: #e67e22;
+    --text-color: #2b2a1f; /* Darker for readability */
+    --primary-color: #b33900; /* Richer Deep Orange */
+    --secondary-color: #556b2f; /* Dark Olive Green */
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --accent-color: #cc5200;
+    --bg-pattern: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M10 90 Q 50 10 90 90 T 170 90" stroke="%23ebd5b3" fill="none" stroke-width="2" opacity="0.4"/></svg>');
     
-    /* Zanzibar Theme Overrides (Applied via .theme-zanzibar class on body) */
-    --bg-znz: #f0f8fa;
-    --text-znz: #1a424a;
-    --primary-znz: #16a085; /* Turquoise */
-    --secondary-znz: #f39c12; /* Sand / Yellow */
+    /* Zanzibar Theme Overrides */
+    --bg-znz: #e8f4f8;
+    --text-znz: #0f3038;
+    --primary-znz: #0e856d; /* Deep Turquoise */
+    --secondary-znz: #d68910; /* Rich Sand */
     --accent-znz: #1abc9c;
+    --bg-pattern-znz: url('data:image/svg+xml;utf8,<svg width="60" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M0 10 Q 15 0 30 10 T 60 10" stroke="%23bde0e8" fill="none" stroke-width="2" opacity="0.6"/></svg>');
 }
 
 body.theme-zanzibar {
@@ -21,6 +23,7 @@ body.theme-zanzibar {
     --primary-color: var(--primary-znz);
     --secondary-color: var(--secondary-znz);
     --accent-color: var(--accent-znz);
+    --bg-pattern: var(--bg-pattern-znz);
 }
 
 * {
@@ -31,10 +34,12 @@ body.theme-zanzibar {
 
 body {
     font-family: 'Outfit', sans-serif;
+    font-size: 18px; /* Increased base size */
     background-color: var(--bg-color);
+    background-image: var(--bg-pattern); /* Adds vibe without distraction */
     color: var(--text-color);
-    line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.7; /* Increased for readability */
+    transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
     padding-bottom: 80px; /* Space for bottom nav */
 }
 
@@ -95,18 +100,23 @@ main {
 }
 
 h1, h2, h3, h4 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
     color: var(--primary-color);
     border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 5px;
+    padding-bottom: 8px;
 }
 h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: var(--secondary-color);
+}
+h4 {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 /* Cards */
@@ -376,4 +386,30 @@ button:hover {
     color: var(--primary-color);
     padding: 5px 10px;
     font-size: 0.9rem;
+}
+
+/* Itinerary */
+.itinerary-list {
+    list-style: none;
+    margin-top: 10px;
+}
+.itinerary-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+.itinerary-list li:last-child {
+    border-bottom: none;
+}
+.flight-day {
+    background-color: rgba(211, 84, 0, 0.05); /* very light primary */
+    padding: 12px;
+    border-radius: 6px;
+    margin: 5px 0;
+}
+.flight-details {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
 }
