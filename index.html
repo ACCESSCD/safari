@@ -57,19 +57,19 @@
                                 <rect x="-1" y="1" width="2" height="5.5" rx="0.6" />
                             </g>
                             <g id="icon-crater">
-                                <circle r="6" fill="none" stroke-width="1.8" />
-                                <circle r="2.3" />
+                                <circle r="6.5" fill="none" stroke-width="2.4" />
+                                <circle r="2.6" />
                             </g>
                             <g id="icon-paw">
-                                <ellipse cx="0" cy="1.6" rx="4" ry="3.2" />
-                                <circle cx="-3.6" cy="-2.6" r="1.3" />
-                                <circle cx="-1.3" cy="-4.4" r="1.3" />
-                                <circle cx="1.3" cy="-4.4" r="1.3" />
-                                <circle cx="3.6" cy="-2.6" r="1.3" />
+                                <ellipse cx="0" cy="1.6" rx="4.3" ry="3.5" />
+                                <circle cx="-3.8" cy="-2.8" r="1.5" />
+                                <circle cx="-1.4" cy="-4.7" r="1.5" />
+                                <circle cx="1.4" cy="-4.7" r="1.5" />
+                                <circle cx="3.8" cy="-2.8" r="1.5" />
                             </g>
                             <g id="icon-beach">
-                                <circle cx="0" cy="-2.5" r="3" />
-                                <path d="M-6,3.2 Q-3,0.2 0,3.2 Q3,6.2 6,3.2" fill="none" stroke-width="1.6" />
+                                <circle cx="0" cy="-2.5" r="3.3" />
+                                <path d="M-6.5,3.4 Q-3.2,0.2 0,3.4 Q3.2,6.6 6.5,3.4" fill="none" stroke-width="2" />
                             </g>
                         </defs>
 
@@ -108,26 +108,72 @@
 
                         <!-- Markers (clickable: jump to that day in the itinerary) -->
                         <g class="map-marker" tabindex="0" role="button" aria-label="Arusha and Kilimanjaro Airport, Day 22" onclick="app.goToItineraryDay('day-22')">
-                            <circle cx="287" cy="135" r="11" />
-                            <use href="#icon-plane" xlink:href="#icon-plane" class="map-marker-icon" transform="translate(287,135) scale(0.85)" />
+                            <circle cx="287" cy="135" r="12" />
+                            <use href="#icon-plane" xlink:href="#icon-plane" class="map-marker-icon" transform="translate(287,135) scale(1)" />
                         </g>
                         <g class="map-marker" tabindex="0" role="button" aria-label="Tarangire National Park, Day 23" onclick="app.goToItineraryDay('day-23')">
-                            <circle cx="254" cy="151" r="11" />
+                            <circle cx="254" cy="151" r="12" />
                             <use href="#icon-tree" xlink:href="#icon-tree" class="map-marker-icon" transform="translate(254,151)" />
                         </g>
                         <g class="map-marker" tabindex="0" role="button" aria-label="Ngorongoro Crater, Days 24 and 27 to 28" onclick="app.goToItineraryDay('day-24')">
-                            <circle cx="241" cy="126" r="11" />
+                            <circle cx="241" cy="126" r="12" />
                             <use href="#icon-crater" xlink:href="#icon-crater" class="map-marker-icon" transform="translate(241,126)" />
                         </g>
                         <g class="map-marker" tabindex="0" role="button" aria-label="Serengeti National Park, Days 25 to 26" onclick="app.goToItineraryDay('day-2526')">
-                            <circle cx="212" cy="99" r="11" />
+                            <circle cx="212" cy="99" r="12" />
                             <use href="#icon-paw" xlink:href="#icon-paw" class="map-marker-icon" transform="translate(212,99)" />
                         </g>
                         <g class="map-marker marker-znz" tabindex="0" role="button" aria-label="Zanzibar, Day 29" onclick="app.goToItineraryDay('day-29')">
-                            <circle cx="372" cy="238" r="11" />
+                            <circle cx="372" cy="238" r="12" />
                             <use href="#icon-beach" xlink:href="#icon-beach" class="map-marker-icon" transform="translate(372,238)" />
                         </g>
+
+                        <!-- Callout box drawn on the country map, pointing at the zoomed inset below -->
+                        <rect x="185" y="72" width="150" height="112" rx="6" class="map-zoom-box" />
                     </svg>
+
+                    <p class="map-inset-caption">Safari circuit, zoomed in</p>
+                    <svg class="tz-map tz-map-inset" viewBox="150 65 195 130" role="img" aria-labelledby="tz-map-inset-title" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title id="tz-map-inset-title">Zoomed-in view of the Arusha, Tarangire, Ngorongoro and Serengeti leg of the route</title>
+
+                        <path class="map-country" d="M88,45 L197,45 L285,109 L317,153 L376,180 L369,197 L375,261 L384,340 L416,396 L329,430 L215,441 L179,363 L135,355 L73,325 L22,232 L15,135 L51,60 Z" />
+
+                        <path class="map-route" d="M287,135 L254,151" marker-end="url(#arrow)" />
+                        <path class="map-route" d="M254,151 L241,126" marker-end="url(#arrow)" />
+                        <path class="map-route" d="M241,126 L212,99" marker-end="url(#arrow)" />
+                        <path class="map-route map-route-return" d="M212,99 Q205,140 241,126" marker-end="url(#arrow)" />
+                        <path class="map-route map-route-flight" d="M241,126 L275,150" />
+                        <text class="map-inset-label map-inset-label-muted" x="278" y="156">to Zanzibar ✈</text>
+
+                        <g class="map-marker" tabindex="0" role="button" aria-label="Arusha and Kilimanjaro Airport, Day 22" onclick="app.goToItineraryDay('day-22')">
+                            <circle cx="287" cy="135" r="12" />
+                            <use href="#icon-plane" xlink:href="#icon-plane" class="map-marker-icon" transform="translate(287,135)" />
+                        </g>
+                        <text class="map-inset-label" x="300" y="132">Arusha</text>
+                        <text class="map-inset-label map-inset-label-muted" x="300" y="142">Day 22</text>
+
+                        <g class="map-marker" tabindex="0" role="button" aria-label="Tarangire National Park, Day 23" onclick="app.goToItineraryDay('day-23')">
+                            <circle cx="254" cy="151" r="12" />
+                            <use href="#icon-tree" xlink:href="#icon-tree" class="map-marker-icon" transform="translate(254,151)" />
+                        </g>
+                        <text class="map-inset-label" x="254" y="172" text-anchor="middle">Tarangire</text>
+                        <text class="map-inset-label map-inset-label-muted" x="254" y="182" text-anchor="middle">Day 23</text>
+
+                        <g class="map-marker" tabindex="0" role="button" aria-label="Ngorongoro Crater, Days 24 and 27 to 28" onclick="app.goToItineraryDay('day-24')">
+                            <circle cx="241" cy="126" r="12" />
+                            <use href="#icon-crater" xlink:href="#icon-crater" class="map-marker-icon" transform="translate(241,126)" />
+                        </g>
+                        <text class="map-inset-label" x="217" y="118" text-anchor="end">Ngorongoro</text>
+                        <text class="map-inset-label map-inset-label-muted" x="217" y="128" text-anchor="end">Days 24 &amp; 27-28</text>
+
+                        <g class="map-marker" tabindex="0" role="button" aria-label="Serengeti National Park, Days 25 to 26" onclick="app.goToItineraryDay('day-2526')">
+                            <circle cx="212" cy="99" r="12" />
+                            <use href="#icon-paw" xlink:href="#icon-paw" class="map-marker-icon" transform="translate(212,99)" />
+                        </g>
+                        <text class="map-inset-label" x="212" y="80" text-anchor="middle">Serengeti</text>
+                        <text class="map-inset-label map-inset-label-muted" x="212" y="90" text-anchor="middle">Days 25-26</text>
+                    </svg>
+
                     <ol class="map-legend">
                         <li onclick="app.goToItineraryDay('day-22')"><span class="map-legend-icon">✈️</span> Arusha &amp; Kilimanjaro Airport (JRO) <small>Day 22, arrival</small></li>
                         <li onclick="app.goToItineraryDay('day-23')"><span class="map-legend-icon">🌳</span> Tarangire National Park <small>Day 23</small></li>
