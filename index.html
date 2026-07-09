@@ -40,8 +40,57 @@
             
             <div class="route-map">
                 <h3>Our Route</h3>
-                <div class="map-placeholder">
-                    Safari (Serengeti/Ngorongoro) ✈️ Zanzibar
+                <div class="tz-map-wrap">
+                    <svg class="tz-map" viewBox="0 0 420 500" role="img" aria-labelledby="tz-map-title">
+                        <title id="tz-map-title">Map of Tanzania showing the safari route from Arusha through Tarangire, Ngorongoro and Serengeti, then a flight to Zanzibar</title>
+
+                        <!-- Mainland outline -->
+                        <path class="map-country" d="M98,0 L175,3 L250,2 L304,8 L345,60 L360,164 L357,235 L367,300 L390,375 L399,423 L330,460 L255,480 L206,482 L175,440 L140,395 L95,368 L55,300 L18,180 L35,90 Z" />
+
+                        <!-- Lakes -->
+                        <path class="map-lake" d="M100,-10 Q150,-5 210,20 Q225,45 200,65 Q150,70 115,45 Q90,20 100,-10 Z" />
+                        <path class="map-lake" d="M20,150 Q45,145 50,180 L52,300 Q45,330 25,320 Q10,240 20,150 Z" />
+                        <path class="map-lake" d="M170,400 Q195,395 205,430 Q210,460 190,478 Q170,460 168,430 Z" />
+
+                        <!-- Zanzibar & Pemba islands -->
+                        <path class="map-island" d="M370,175 Q380,172 379,192 Q378,208 368,206 Q362,190 370,175 Z" />
+                        <path class="map-island" d="M349,215 Q362,212 364,235 Q366,258 352,260 Q340,240 349,215 Z" />
+
+                        <!-- Route: Arusha -> Tarangire -> Ngorongoro -> Serengeti -> Ngorongoro -->
+                        <polyline class="map-route" points="268,109 240,127 228,100 204,66 228,100" />
+                        <!-- Flight: Ngorongoro area -> Zanzibar -->
+                        <polyline class="map-route map-route-flight" points="228,100 357,235" />
+                        <text class="map-plane" x="292" y="160">✈️</text>
+
+                        <!-- Markers -->
+                        <g class="map-marker">
+                            <circle cx="268" cy="109" r="9" />
+                            <text x="268" y="109">1</text>
+                        </g>
+                        <g class="map-marker">
+                            <circle cx="240" cy="127" r="9" />
+                            <text x="240" y="127">2</text>
+                        </g>
+                        <g class="map-marker">
+                            <circle cx="228" cy="100" r="9" />
+                            <text x="228" y="100">3</text>
+                        </g>
+                        <g class="map-marker">
+                            <circle cx="204" cy="66" r="9" />
+                            <text x="204" y="66">4</text>
+                        </g>
+                        <g class="map-marker">
+                            <circle cx="357" cy="235" r="9" />
+                            <text x="357" y="235">5</text>
+                        </g>
+                    </svg>
+                    <ol class="map-legend">
+                        <li><span class="map-legend-num">1</span> Arusha &amp; Kilimanjaro Airport (JRO)</li>
+                        <li><span class="map-legend-num">2</span> Tarangire National Park</li>
+                        <li><span class="map-legend-num">3</span> Ngorongoro Crater</li>
+                        <li><span class="map-legend-num">4</span> Serengeti National Park</li>
+                        <li><span class="map-legend-num">5</span> Zanzibar <small>(by flight)</small></li>
+                    </ol>
                 </div>
             </div>
 

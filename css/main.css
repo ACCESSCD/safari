@@ -150,15 +150,89 @@ h4 {
 .countdown .days {
     font-size: 1.8rem;
 }
-.map-placeholder {
-    background: #e0e0e0;
-    height: 150px;
+.tz-map-wrap {
+    margin-top: 10px;
+    background: #eef6f4;
+    border-radius: 8px;
+    padding: 10px 10px 15px;
+}
+.tz-map {
+    width: 100%;
+    height: auto;
+    max-height: 320px;
+    display: block;
+}
+.map-country {
+    fill: #f3e2ba;
+    stroke: var(--secondary-color);
+    stroke-width: 2;
+    stroke-linejoin: round;
+}
+.map-lake,
+.map-island {
+    fill: #9cd2e3;
+    stroke: #7cb8cc;
+    stroke-width: 1;
+}
+.map-island {
+    fill: #f3e2ba;
+    stroke: var(--secondary-color);
+}
+.map-route {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.map-route-flight {
+    stroke: var(--accent-color);
+    stroke-dasharray: 6 5;
+}
+.map-plane {
+    font-size: 16px;
+    text-anchor: middle;
+}
+.map-marker circle {
+    fill: var(--primary-color);
+    stroke: white;
+    stroke-width: 2;
+}
+.map-marker text {
+    fill: white;
+    font-size: 11px;
+    font-weight: 700;
+    text-anchor: middle;
+    dominant-baseline: central;
+}
+.map-legend {
+    list-style: none;
+    margin-top: 12px;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+.map-legend li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.map-legend small {
+    color: #666;
+}
+.map-legend-num {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
-    margin-top: 10px;
-    color: #666;
 }
 .quick-nav {
     display: grid;
