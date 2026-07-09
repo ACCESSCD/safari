@@ -80,6 +80,17 @@ const app = {
         window.scrollTo(0, 0);
     },
 
+    goToItineraryDay(dayId) {
+        this.navTo('trip');
+        requestAnimationFrame(() => {
+            const el = document.getElementById(dayId);
+            if (!el) return;
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.classList.add('highlight-flash');
+            setTimeout(() => el.classList.remove('highlight-flash'), 1500);
+        });
+    },
+
     populateNameSelector() {
         const select = document.getElementById('name-select');
         AppData.users.forEach(user => {

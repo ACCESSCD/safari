@@ -41,55 +41,99 @@
             <div class="route-map">
                 <h3>Our Route</h3>
                 <div class="tz-map-wrap">
-                    <svg class="tz-map" viewBox="0 0 420 500" role="img" aria-labelledby="tz-map-title">
-                        <title id="tz-map-title">Map of Tanzania showing the safari route from Arusha through Tarangire, Ngorongoro and Serengeti, then a flight to Zanzibar</title>
+                    <svg class="tz-map" viewBox="0 0 420 460" role="img" aria-labelledby="tz-map-title" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title id="tz-map-title">Map of Tanzania showing the flight arrival into Arusha, the safari route through Tarangire, Ngorongoro and Serengeti, and the flight to Zanzibar</title>
 
-                        <!-- Mainland outline -->
-                        <path class="map-country" d="M98,0 L175,3 L250,2 L304,8 L345,60 L360,164 L357,235 L367,300 L390,375 L399,423 L330,460 L255,480 L206,482 L175,440 L140,395 L95,368 L55,300 L18,180 L35,90 Z" />
+                        <defs>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M0,0 L10,5 L0,10 Z" fill="#b33900" />
+                            </marker>
+                            <!-- Vector icons (no emoji fonts, so they render identically on every browser) -->
+                            <g id="icon-plane">
+                                <path d="M0,-7 L6,6 L0,3 L-6,6 Z" />
+                            </g>
+                            <g id="icon-tree">
+                                <circle cx="0" cy="-2" r="4" />
+                                <rect x="-1" y="1" width="2" height="5.5" rx="0.6" />
+                            </g>
+                            <g id="icon-crater">
+                                <circle r="6" fill="none" stroke-width="1.8" />
+                                <circle r="2.3" />
+                            </g>
+                            <g id="icon-paw">
+                                <ellipse cx="0" cy="1.6" rx="4" ry="3.2" />
+                                <circle cx="-3.6" cy="-2.6" r="1.3" />
+                                <circle cx="-1.3" cy="-4.4" r="1.3" />
+                                <circle cx="1.3" cy="-4.4" r="1.3" />
+                                <circle cx="3.6" cy="-2.6" r="1.3" />
+                            </g>
+                            <g id="icon-beach">
+                                <circle cx="0" cy="-2.5" r="3" />
+                                <path d="M-6,3.2 Q-3,0.2 0,3.2 Q3,6.2 6,3.2" fill="none" stroke-width="1.6" />
+                            </g>
+                        </defs>
+
+                        <!-- Mainland outline (approximate) -->
+                        <path class="map-country" d="M88,45 L197,45 L285,109 L317,153 L376,180 L369,197 L375,261 L384,340 L416,396 L329,430 L215,441 L179,363 L135,355 L73,325 L22,232 L15,135 L51,60 Z" />
 
                         <!-- Lakes -->
-                        <path class="map-lake" d="M100,-10 Q150,-5 210,20 Q225,45 200,65 Q150,70 115,45 Q90,20 100,-10 Z" />
-                        <path class="map-lake" d="M20,150 Q45,145 50,180 L52,300 Q45,330 25,320 Q10,240 20,150 Z" />
-                        <path class="map-lake" d="M170,400 Q195,395 205,430 Q210,460 190,478 Q170,460 168,430 Z" />
+                        <path class="map-lake" d="M95,15 Q150,3 205,20 Q218,50 195,75 Q150,95 115,70 Q85,45 95,15 Z" />
+                        <path class="map-lake" d="M60,140 Q68,145 65,180 L60,290 Q55,320 30,310 Q15,230 25,150 Q35,138 60,140 Z" />
+                        <path class="map-lake" d="M195,360 Q215,358 218,395 Q220,430 198,438 Q178,420 176,390 Q178,365 195,360 Z" />
+                        <text class="map-water-label" x="150" y="45">L. Victoria</text>
+                        <text class="map-water-label" x="18" y="215" transform="rotate(-90 18 215)">L. Tanganyika</text>
+                        <text class="map-water-label" x="197" y="400">L. Nyasa</text>
+                        <text class="map-water-label map-ocean-label" x="398" y="270" transform="rotate(90 398 270)">INDIAN OCEAN</text>
 
                         <!-- Zanzibar & Pemba islands -->
-                        <path class="map-island" d="M370,175 Q380,172 379,192 Q378,208 368,206 Q362,190 370,175 Z" />
-                        <path class="map-island" d="M349,215 Q362,212 364,235 Q366,258 352,260 Q340,240 349,215 Z" />
+                        <path class="map-island" d="M370,220 Q380,217 379,237 Q378,253 368,251 Q362,235 370,220 Z" />
+                        <path class="map-island" d="M349,260 Q362,257 364,280 Q366,303 352,305 Q340,285 349,260 Z" />
 
-                        <!-- Route: Arusha -> Tarangire -> Ngorongoro -> Serengeti -> Ngorongoro -->
-                        <polyline class="map-route" points="268,109 240,127 228,100 204,66 228,100" />
-                        <!-- Flight: Ngorongoro area -> Zanzibar -->
-                        <polyline class="map-route map-route-flight" points="228,100 357,235" />
-                        <text class="map-plane" x="292" y="160">✈️</text>
+                        <!-- Day 22: international arrival into Arusha/JRO -->
+                        <path class="map-route map-route-flight" d="M335,8 L287,135" />
+                        <use href="#icon-plane" xlink:href="#icon-plane" class="map-plane-icon" transform="translate(317,62) rotate(-159) scale(1.3)" />
 
-                        <!-- Markers -->
-                        <g class="map-marker">
-                            <circle cx="268" cy="109" r="9" />
-                            <text x="268" y="109">1</text>
+                        <!-- Day 23: Arusha -> Tarangire -->
+                        <path class="map-route" d="M287,135 L254,151" marker-end="url(#arrow)" />
+                        <!-- Day 24: Tarangire -> Ngorongoro -->
+                        <path class="map-route" d="M254,151 L241,126" marker-end="url(#arrow)" />
+                        <!-- Day 25-26: Ngorongoro -> Serengeti (outbound) -->
+                        <path class="map-route" d="M241,126 L212,99" marker-end="url(#arrow)" />
+                        <!-- Day 27-28: Serengeti -> Ngorongoro (return, bowed so it reads as a separate leg) -->
+                        <path class="map-route map-route-return" d="M212,99 Q205,140 241,126" marker-end="url(#arrow)" />
+
+                        <!-- Day 29: Ngorongoro -> Zanzibar by flight -->
+                        <path class="map-route map-route-flight" d="M241,126 L372,238" />
+                        <use href="#icon-plane" xlink:href="#icon-plane" class="map-plane-icon" transform="translate(300,176) rotate(130) scale(1.3)" />
+
+                        <!-- Markers (clickable: jump to that day in the itinerary) -->
+                        <g class="map-marker" tabindex="0" role="button" aria-label="Arusha and Kilimanjaro Airport, Day 22" onclick="app.goToItineraryDay('day-22')">
+                            <circle cx="287" cy="135" r="11" />
+                            <use href="#icon-plane" xlink:href="#icon-plane" class="map-marker-icon" transform="translate(287,135) scale(0.85)" />
                         </g>
-                        <g class="map-marker">
-                            <circle cx="240" cy="127" r="9" />
-                            <text x="240" y="127">2</text>
+                        <g class="map-marker" tabindex="0" role="button" aria-label="Tarangire National Park, Day 23" onclick="app.goToItineraryDay('day-23')">
+                            <circle cx="254" cy="151" r="11" />
+                            <use href="#icon-tree" xlink:href="#icon-tree" class="map-marker-icon" transform="translate(254,151)" />
                         </g>
-                        <g class="map-marker">
-                            <circle cx="228" cy="100" r="9" />
-                            <text x="228" y="100">3</text>
+                        <g class="map-marker" tabindex="0" role="button" aria-label="Ngorongoro Crater, Days 24 and 27 to 28" onclick="app.goToItineraryDay('day-24')">
+                            <circle cx="241" cy="126" r="11" />
+                            <use href="#icon-crater" xlink:href="#icon-crater" class="map-marker-icon" transform="translate(241,126)" />
                         </g>
-                        <g class="map-marker">
-                            <circle cx="204" cy="66" r="9" />
-                            <text x="204" y="66">4</text>
+                        <g class="map-marker" tabindex="0" role="button" aria-label="Serengeti National Park, Days 25 to 26" onclick="app.goToItineraryDay('day-2526')">
+                            <circle cx="212" cy="99" r="11" />
+                            <use href="#icon-paw" xlink:href="#icon-paw" class="map-marker-icon" transform="translate(212,99)" />
                         </g>
-                        <g class="map-marker">
-                            <circle cx="357" cy="235" r="9" />
-                            <text x="357" y="235">5</text>
+                        <g class="map-marker marker-znz" tabindex="0" role="button" aria-label="Zanzibar, Day 29" onclick="app.goToItineraryDay('day-29')">
+                            <circle cx="372" cy="238" r="11" />
+                            <use href="#icon-beach" xlink:href="#icon-beach" class="map-marker-icon" transform="translate(372,238)" />
                         </g>
                     </svg>
                     <ol class="map-legend">
-                        <li><span class="map-legend-num">1</span> Arusha &amp; Kilimanjaro Airport (JRO)</li>
-                        <li><span class="map-legend-num">2</span> Tarangire National Park</li>
-                        <li><span class="map-legend-num">3</span> Ngorongoro Crater</li>
-                        <li><span class="map-legend-num">4</span> Serengeti National Park</li>
-                        <li><span class="map-legend-num">5</span> Zanzibar <small>(by flight)</small></li>
+                        <li onclick="app.goToItineraryDay('day-22')"><span class="map-legend-icon">✈️</span> Arusha &amp; Kilimanjaro Airport (JRO) <small>Day 22, arrival</small></li>
+                        <li onclick="app.goToItineraryDay('day-23')"><span class="map-legend-icon">🌳</span> Tarangire National Park <small>Day 23</small></li>
+                        <li onclick="app.goToItineraryDay('day-24')"><span class="map-legend-icon">🎯</span> Ngorongoro Crater <small>Days 24 &amp; 27–28</small></li>
+                        <li onclick="app.goToItineraryDay('day-2526')"><span class="map-legend-icon">🐾</span> Serengeti National Park <small>Days 25–26</small></li>
+                        <li onclick="app.goToItineraryDay('day-29')"><span class="map-legend-icon marker-znz-icon">🏖️</span> Zanzibar <small>Day 29, by flight</small></li>
                     </ol>
                 </div>
             </div>
@@ -187,16 +231,16 @@
             <div class="card itinerary-card">
                 <h3>🗺️ Day-by-Day Itinerary</h3>
                 <ul class="itinerary-list">
-                    <li class="flight-day">
+                    <li id="day-22" class="flight-day">
                         <strong>Day 22/11 - Arrival:</strong> Kilimanjaro Airport. Transfer to Arusha.<br>
                         <span class="flight-details">✈️ Flight: Ethiopian Airlines ET0415 (09:00-14:15) & ET0867 (14:45-18:05) | Arr: JRO 18:05</span>
                     </li>
-                    <li><strong>Day 23/11:</strong> Tarangire National Park Game Drive.</li>
-                    <li><strong>Day 24/11:</strong> Ngorongoro Crater Game Drive.</li>
-                    <li><strong>Day 25/11:</strong> Serengeti National Park Game Drive.</li>
+                    <li id="day-23"><strong>Day 23/11:</strong> Tarangire National Park Game Drive.</li>
+                    <li id="day-24"><strong>Day 24/11:</strong> Ngorongoro Crater Game Drive.</li>
+                    <li id="day-2526"><strong>Day 25/11:</strong> Serengeti National Park Game Drive.</li>
                     <li><strong>Day 26/11:</strong> Full Day Serengeti Game Drive.</li>
-                    <li><strong>Day 27/11 & 28/11:</strong> Ngorongoro Conservation Area.</li>
-                    <li class="flight-day">
+                    <li id="day-2728"><strong>Day 27/11 & 28/11:</strong> Ngorongoro Conservation Area.</li>
+                    <li id="day-29" class="flight-day">
                         <strong>Day 29/11 - To Zanzibar:</strong> Flight to Zanzibar.<br>
                         <span class="flight-details">✈️ Flight: Air Tanzania TC0145 | Dep: 12:40 | Arr: ZNZ 13:40</span>
                     </li>

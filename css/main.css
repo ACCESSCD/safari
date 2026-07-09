@@ -185,25 +185,49 @@ h4 {
     stroke-linecap: round;
     stroke-linejoin: round;
 }
+.map-route-return {
+    stroke-dasharray: 2 5;
+    opacity: 0.85;
+}
 .map-route-flight {
     stroke: var(--accent-color);
     stroke-dasharray: 6 5;
 }
-.map-plane {
-    font-size: 16px;
+.map-plane-icon {
+    fill: var(--accent-color);
+}
+.map-water-label {
+    fill: #6fa3b5;
+    font-size: 8px;
+    font-style: italic;
     text-anchor: middle;
+}
+.map-ocean-label {
+    fill: #5b93a6;
+    font-size: 9px;
+    letter-spacing: 1px;
 }
 .map-marker circle {
     fill: var(--primary-color);
     stroke: white;
     stroke-width: 2;
+    transition: r 0.15s ease;
 }
-.map-marker text {
+.map-marker-icon {
     fill: white;
-    font-size: 11px;
-    font-weight: 700;
-    text-anchor: middle;
-    dominant-baseline: central;
+    stroke: white;
+    pointer-events: none;
+}
+.map-marker {
+    cursor: pointer;
+}
+.map-marker:hover circle,
+.map-marker:focus circle {
+    r: 13;
+    outline: none;
+}
+.map-marker.marker-znz circle {
+    fill: var(--accent-znz);
 }
 .map-legend {
     list-style: none;
@@ -217,22 +241,41 @@ h4 {
     display: flex;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+}
+.map-legend li:hover {
+    background: rgba(0, 0, 0, 0.04);
 }
 .map-legend small {
     color: #666;
+    margin-left: auto;
+    white-space: nowrap;
 }
-.map-legend-num {
+.map-legend-icon {
     flex-shrink: 0;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
-    background: var(--primary-color);
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 700;
+    background: white;
+    border: 2px solid var(--primary-color);
+    font-size: 0.85rem;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.map-legend-icon.marker-znz-icon {
+    border-color: var(--accent-znz);
+}
+.highlight-flash {
+    animation: flashHighlight 1.5s ease;
+    border-radius: 6px;
+}
+@keyframes flashHighlight {
+    0%, 15% { background: rgba(179, 57, 0, 0.18); }
+    100% { background: transparent; }
 }
 .quick-nav {
     display: grid;
