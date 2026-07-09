@@ -91,6 +91,31 @@ const app = {
         });
     },
 
+    // Map pin tap: show the stop's name in the readout bar instead of
+    // jumping away immediately, so tapping a pin just tells you what it is.
+    showMapPin(event, name, dayText, dayId) {
+        event.stopPropagation();
+        const readout = document.getElementById('map-readout');
+        if (!readout) return;
+        readout.innerHTML = `📍 <strong>${name}</strong> <span class="map-readout-day">${dayText}</span> <span class="map-readout-arrow">View day ›</span>`;
+        readout.classList.add('active');
+        readout.dataset.dayId = dayId;
+    },
+
+    closeMapReadout() {
+        const readout = document.getElementById('map-readout');
+        if (!readout || !readout.classList.contains('active')) return;
+        readout.classList.remove('active');
+        delete readout.dataset.dayId;
+        readout.textContent = 'Tap a pin above to see the stop name';
+    },
+
+    goToPinDay() {
+        const readout = document.getElementById('map-readout');
+        if (!readout || !readout.dataset.dayId) return;
+        this.goToItineraryDay(readout.dataset.dayId);
+    },
+
     populateNameSelector() {
         const select = document.getElementById('name-select');
         AppData.users.forEach(user => {

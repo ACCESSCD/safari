@@ -171,6 +171,7 @@ h4 {
     stroke: var(--primary-color);
     stroke-width: 1.5;
     stroke-dasharray: 4 3;
+    pointer-events: none;
 }
 .map-inset-caption {
     text-align: center;
@@ -268,6 +269,34 @@ h4 {
 }
 .map-marker.marker-znz circle {
     fill: var(--accent-znz);
+}
+.map-readout {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: white;
+    border: 1px dashed #c9bfa2;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888;
+    cursor: default;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+.map-readout.active {
+    background: rgba(179, 57, 0, 0.06);
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+.map-readout-day {
+    color: #777;
+    font-size: 0.8rem;
+}
+.map-readout-arrow {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-left: 4px;
 }
 .map-legend {
     list-style: none;
