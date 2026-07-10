@@ -562,6 +562,40 @@ button:hover {
 .zanzibar-shift li {
     margin-bottom: 6px;
 }
+.timeline {
+    list-style: none;
+    padding: 0;
+}
+.timeline > li {
+    background: #f9f9f9;
+    padding: 14px;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-znz);
+    margin-bottom: 14px;
+}
+.timeline > li:last-child {
+    margin-bottom: 0;
+}
+.timeline-time {
+    display: inline-block;
+    background: var(--primary-znz);
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+.timeline h4 {
+    margin-top: 0;
+    margin-bottom: 6px;
+}
+.timeline p {
+    margin-bottom: 8px;
+}
+.timeline p:last-child {
+    margin-bottom: 0;
+}
 .tide-table-wrap {
     overflow-x: auto;
     margin: 10px 0;
