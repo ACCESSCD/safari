@@ -135,6 +135,24 @@ h4 {
     border-left: 4px solid var(--primary-color);
     background-color: rgba(211, 84, 0, 0.05);
 }
+.lodge-list {
+    list-style: none;
+}
+.lodge-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+}
+.lodge-list li:last-child {
+    border-bottom: none;
+}
+.lodge-list a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+.lodge-list a:hover {
+    text-decoration: underline;
+}
 
 /* Home Elements */
 .hero-banner {
