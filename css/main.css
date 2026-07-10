@@ -551,6 +551,46 @@ button:hover {
 .zanzibar-shift h3 {
     color: var(--primary-znz);
 }
+.zanzibar-shift h4 {
+    color: var(--primary-znz);
+    margin-top: 18px;
+}
+.zanzibar-shift ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+.zanzibar-shift li {
+    margin-bottom: 6px;
+}
+.tide-table-wrap {
+    overflow-x: auto;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #e0dcd0;
+}
+.tide-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+.tide-table th,
+.tide-table td {
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+.tide-table thead th {
+    background: var(--accent-znz);
+    color: white;
+    font-weight: 600;
+}
+.tide-table tbody tr:last-child td {
+    border-bottom: none;
+}
+.tide-table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
 .list-grid {
     display: grid;
     gap: 10px;
