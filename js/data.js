@@ -76,10 +76,5 @@ const AppData = {
         { title: "Stone Town Walking Tour", desc: "Historic streets, carved doors, and local markets." },
         { title: "Sunset Dhow Cruise", desc: "Classic wooden boat sailing at sunset." },
         { title: "Swimming with Dolphins", desc: "Usually in the south near Kizimkazi." }
-    ],
-    restaurants: [
-        { title: "The Rock Restaurant", desc: "Iconic restaurant on a rock in the ocean (book in advance!)." },
-        { title: "Forodhani Gardens", desc: "Night market in Stone Town - great for street food like Zanzibar pizza." },
-        { title: "Lukmaan Restaurant", desc: "Authentic local food in Stone Town." }
     ]
 };

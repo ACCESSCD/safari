@@ -127,15 +127,10 @@ const app = {
     },
 
     renderAllStatic() {
-        // Zanzibar shortlists
+        // Zanzibar shortlist
         const znzAct = document.getElementById('znz-activities');
         AppData.zanzibarActivities.forEach(act => {
             znzAct.innerHTML += `<div class="shortlist-item"><strong>${act.title}</strong><br>${act.desc}</div>`;
-        });
-
-        const znzRest = document.getElementById('znz-restaurants');
-        AppData.restaurants.forEach(rest => {
-            znzRest.innerHTML += `<div class="shortlist-item"><strong>${rest.title}</strong><br>${rest.desc}</div>`;
         });
 
         // Swahili
@@ -163,6 +158,17 @@ const app = {
         this.renderEntries('game-drive-list', 'gamedrive');
         this.renderEntries('journal-list', 'journal');
         this.renderZanzibarHotels();
+        this.renderEntries('znz-shortlist-suggestions', 'znz_shortlist');
+    },
+
+    addShortlistSuggestion() {
+        if (!this.currentUser) return alert('Select your name first!');
+        const input = document.getElementById('znz-shortlist-new');
+        if (!input.value) return;
+
+        Store.addEntry('znz_shortlist', { userName: this.currentUser, text: input.value });
+        input.value = '';
+        this.renderEntries('znz-shortlist-suggestions', 'znz_shortlist');
     },
 
     // Zanzibar Hotel Decision
@@ -314,7 +320,12 @@ const app = {
 
     deleteEntry(storeId, entryId) {
         Store.deleteEntry(storeId, entryId);
-        this.renderEntries(storeId === 'gamedrive' ? 'game-drive-list' : 'journal-list', storeId);
+        const containerIds = {
+            gamedrive: 'game-drive-list',
+            journal: 'journal-list',
+            znz_shortlist: 'znz-shortlist-suggestions'
+        };
+        this.renderEntries(containerIds[storeId] || storeId, storeId);
     },
 
     // Wishlist

@@ -285,11 +285,19 @@
             <div class="card zanzibar-shift">
                 <h3>🏖️ Zanzibar Shortlist</h3>
                 <div id="znz-activities" class="list-grid"></div>
+
+                <div class="user-warning needs-user">Please select your name above to suggest something.</div>
+                <div class="wishlist-input">
+                    <input type="text" id="znz-shortlist-new" placeholder="Suggest something to add...">
+                    <button onclick="app.addShortlistSuggestion()">Add</button>
+                </div>
+                <ul id="znz-shortlist-suggestions" class="log-list"></ul>
             </div>
 
             <div class="card zanzibar-shift">
-                <h3>🍽️ Zanzibar Restaurants</h3>
-                <div id="znz-restaurants" class="list-grid"></div>
+                <h3>🌊 Zanzibar Tide Chart</h3>
+                <p>Check tide times before planning beach days, snorkeling, or the sunset dhow cruise.</p>
+                <a href="https://www.tide-forecast.com/locations/Zanzibar-Tanzania/tides/latest" target="_blank" rel="noopener" class="btn-primary">View Tide Forecast →</a>
             </div>
 
             <div class="card print-card">
