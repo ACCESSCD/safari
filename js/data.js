@@ -66,6 +66,10 @@ const AppData = {
         { eng: "Goodbye", swa: "Kwa heri" },
         { eng: "How much?", swa: "Bei gani?" }
     ],
+    zanzibarHotels: [
+        { id: "riu_jambo", name: "Hotel Riu Jambo", link: "https://www.riu.com/en/hotel/tanzania/zanzibar/hotel-riu-jambo", note: "Option 1 — all-inclusive" },
+        { id: "the_mora", name: "The Mora Zanzibar", link: "https://www.themora.com/zanzibar/", note: "Option 2" }
+    ],
     zanzibarActivities: [
         { title: "Snorkeling", desc: "Mnemba Atoll or Safari Blue for incredible marine life." },
         { title: "Spice Tour", desc: "Walk through farms to see, smell, and taste fresh spices." },

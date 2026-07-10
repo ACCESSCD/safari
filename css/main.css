@@ -561,6 +561,37 @@ button:hover {
     border-radius: 4px;
     border-left: 3px solid var(--accent-znz);
 }
+.hotel-decision-list {
+    display: grid;
+    gap: 16px;
+}
+.hotel-option {
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-znz);
+}
+.hotel-option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.hotel-option-header h4 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+.hotel-option-header a {
+    color: var(--text-color);
+}
+.hotel-option-header small {
+    color: #777;
+    font-weight: 400;
+}
+.hotel-comments:empty {
+    display: none;
+}
 
 /* Photo Tabs */
 .photo-upload-link {

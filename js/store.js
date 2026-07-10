@@ -67,5 +67,22 @@ const Store = {
             }
             localStorage.setItem('safari_wishlist', JSON.stringify(list));
         }
+    },
+
+    // Zanzibar Hotel Decision: votes + comments, per hotel
+    getHotelVotes(hotelId) {
+        const data = localStorage.getItem(`safari_hotel_votes_${hotelId}`);
+        return data ? JSON.parse(data) : [];
+    },
+    toggleHotelVote(hotelId, userName) {
+        if (!userName) return;
+        const votes = this.getHotelVotes(hotelId);
+        const idx = votes.indexOf(userName);
+        if (idx > -1) {
+            votes.splice(idx, 1);
+        } else {
+            votes.push(userName);
+        }
+        localStorage.setItem(`safari_hotel_votes_${hotelId}`, JSON.stringify(votes));
     }
 };
