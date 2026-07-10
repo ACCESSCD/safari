@@ -250,12 +250,6 @@
                 <p><small>Tips: Use DEET repellent, wear long sleeves at dusk/dawn, sleep under provided nets.</small></p>
             </div>
 
-            <div class="card">
-                <h3>💉 Vaccination Checklist</h3>
-                <p class="disclaimer">General reference only — confirm requirements with a travel clinic.</p>
-                <div class="user-warning needs-user">Please select your name above to save your checklist.</div>
-                <div id="vax-list" class="checklist-container"></div>
-            </div>
         </section>
 
         <!-- SECTION: PLANNING -->
@@ -407,14 +401,27 @@
                 <a href="https://www.tide-forecast.com/locations/Zanzibar-Tanzania/tides/latest" target="_blank" rel="noopener" class="btn-primary">Recheck Live Tide Forecast →</a>
             </div>
 
+        </section>
+
+        <!-- SECTION: PREP -->
+        <section id="sec-prep" class="view-section">
+            <h2>Prep</h2>
+
             <div class="card print-card">
                 <div class="flex-header">
                     <h3>🎒 Packing List</h3>
                     <button onclick="window.print()" class="print-btn">Print / Save PDF</button>
                 </div>
                 <div class="user-warning needs-user">Please select your name above to save your packing list.</div>
-                
+
                 <div id="packing-list" class="checklist-container"></div>
+            </div>
+
+            <div class="card">
+                <h3>💉 Vaccination Checklist</h3>
+                <p class="disclaimer">General reference only — confirm requirements with a travel clinic.</p>
+                <div class="user-warning needs-user">Please select your name above to save your checklist.</div>
+                <div id="vax-list" class="checklist-container"></div>
             </div>
         </section>
 
@@ -495,6 +502,7 @@
         <a href="#home" class="nav-item active" onclick="app.navTo('home'); return false;">Home</a>
         <a href="#logistics" class="nav-item" onclick="app.navTo('logistics'); return false;">Info</a>
         <a href="#planning" class="nav-item" onclick="app.navTo('planning'); return false;">Plan</a>
+        <a href="#prep" class="nav-item" onclick="app.navTo('prep'); return false;">Prep</a>
         <a href="#trip" class="nav-item" onclick="app.navTo('trip'); return false;">Trip</a>
         <a href="#extras" class="nav-item" onclick="app.navTo('extras'); return false;">Extras</a>
     </nav>

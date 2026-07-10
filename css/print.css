@@ -9,17 +9,17 @@
         display: none !important;
     }
 
-    #sec-planning, #sec-planning * {
+    #sec-prep, #sec-prep * {
         visibility: visible;
     }
 
     /* Hide all cards in planning */
-    #sec-planning .card {
+    #sec-prep .card {
         display: none !important;
     }
 
     /* Specifically target the packing list card to show it */
-    #sec-planning .print-card {
+    #sec-prep .print-card {
         display: block !important;
         position: absolute;
         left: 0;
