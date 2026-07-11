@@ -47,6 +47,10 @@
         display: none !important;
     }
 
+    .section-link {
+        display: none !important;
+    }
+
     .user-warning {
         display: none !important;
     }

@@ -27,7 +27,8 @@ const AppData = {
             { id: "z_sandals", label: "Sandals / Flip-flops" },
             { id: "z_sunglasses", label: "Sunglasses" },
             { id: "z_coverup", label: "Beach Cover-up" },
-            { id: "z_drybag", label: "Small Dry Bag" }
+            { id: "z_drybag", label: "Small Dry Bag" },
+            { id: "z_reefshoes", label: "Water Shoes / Reef Shoes (for reef walks & snorkeling)" }
         ],
         general: [
             { id: "g_passport", label: "Passport (valid 6+ months)" },

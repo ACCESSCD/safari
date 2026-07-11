@@ -14,12 +14,13 @@ const app = {
         }
 
         this.renderAllStatic();
-        
+
         // Handle hash routing on load
         const hash = window.location.hash.replace('#', '') || 'home';
         this.navTo(hash);
-        
+
         this.startCountdown();
+        this.loadWeather();
     },
 
     bindEvents() {
@@ -81,9 +82,13 @@ const app = {
     },
 
     goToItineraryDay(dayId) {
-        this.navTo('logistics');
+        this.goToSection('logistics', dayId);
+    },
+
+    goToSection(sectionId, elementId) {
+        this.navTo(sectionId);
         requestAnimationFrame(() => {
-            const el = document.getElementById(dayId);
+            const el = document.getElementById(elementId);
             if (!el) return;
             el.scrollIntoView({ behavior: 'smooth', block: 'center' });
             el.classList.add('highlight-flash');
@@ -146,7 +151,11 @@ const app = {
         
         const packingData = [
             { category: 'Safari', items: AppData.packing.safari },
-            { category: 'Zanzibar', items: AppData.packing.zanzibar },
+            {
+                category: 'Zanzibar',
+                items: AppData.packing.zanzibar,
+                note: `<a href="#planning" onclick="app.goToSection('planning', 'coral-snorkelling'); return false;">🐠 Planning reef time? See Coral Snorkelling tips →</a>`
+            },
             { category: 'General', items: AppData.packing.general }
         ];
         this.renderGroupedChecklist('packing-list', packingData, 'packing');
@@ -258,7 +267,7 @@ const app = {
         groups.forEach(group => {
             const section = document.createElement('div');
             section.className = 'packing-group';
-            section.innerHTML = `<h4>${group.category}</h4>`;
+            section.innerHTML = `<h4>${group.category}</h4>${group.note ? `<p class="section-link">${group.note}</p>` : ''}`;
             group.items.forEach(item => {
                 const isChecked = saved.includes(item.id);
                 const div = document.createElement('div');
@@ -372,6 +381,63 @@ const app = {
         event.target.classList.add('active');
         // Simple static placeholder change
         document.getElementById('photo-grid').innerHTML = `<p class="placeholder-text">${tab === 'safari' ? 'Safari' : 'Zanzibar'} photos will appear here after the trip. Add to <code>/assets/photos/${tab}/</code></p>`;
+    },
+
+    // Weather (Open-Meteo — no API key required)
+    weatherLocations: [
+        { id: 'arusha', label: 'Arusha (Safari)', lat: -3.3869, lon: 36.6829 },
+        { id: 'zanzibar', label: 'Zanzibar', lat: -6.1659, lon: 39.2026 }
+    ],
+
+    weatherCodeInfo(code) {
+        const map = {
+            0: ['☀️', 'Clear sky'],
+            1: ['🌤️', 'Mostly clear'],
+            2: ['⛅', 'Partly cloudy'],
+            3: ['☁️', 'Overcast'],
+            45: ['🌫️', 'Fog'], 48: ['🌫️', 'Fog'],
+            51: ['🌦️', 'Light drizzle'], 53: ['🌦️', 'Drizzle'], 55: ['🌦️', 'Dense drizzle'],
+            61: ['🌧️', 'Light rain'], 63: ['🌧️', 'Rain'], 65: ['🌧️', 'Heavy rain'],
+            71: ['🌨️', 'Light snow'], 73: ['🌨️', 'Snow'], 75: ['🌨️', 'Heavy snow'],
+            80: ['🌦️', 'Rain showers'], 81: ['🌧️', 'Rain showers'], 82: ['⛈️', 'Violent showers'],
+            95: ['⛈️', 'Thunderstorm']
+        };
+        const [icon, desc] = map[code] || ['🌡️', 'Weather'];
+        return { icon, desc };
+    },
+
+    async loadWeather() {
+        const container = document.getElementById('weather-widget');
+        if (!container) return;
+
+        container.innerHTML = this.weatherLocations.map(loc => `
+            <div class="weather-tile" id="weather-${loc.id}">
+                <div class="weather-loc">${loc.label}</div>
+                <div class="weather-status">Loading…</div>
+            </div>
+        `).join('');
+
+        await Promise.all(this.weatherLocations.map(async (loc) => {
+            const tile = document.getElementById(`weather-${loc.id}`);
+            try {
+                const url = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,weather_code&timezone=auto`;
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('Weather request failed');
+                const data = await res.json();
+                const temp = Math.round(data.current.temperature_2m);
+                const { icon, desc } = this.weatherCodeInfo(data.current.weather_code);
+                tile.innerHTML = `
+                    <div class="weather-loc">${loc.label}</div>
+                    <div class="weather-main"><span class="weather-icon">${icon}</span><span class="weather-temp">${temp}°C</span></div>
+                    <div class="weather-desc">${desc}</div>
+                `;
+            } catch (err) {
+                tile.innerHTML = `
+                    <div class="weather-loc">${loc.label}</div>
+                    <div class="weather-error">Weather unavailable</div>
+                `;
+            }
+        }));
     },
 
     // Countdown

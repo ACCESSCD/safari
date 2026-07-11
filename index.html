@@ -40,7 +40,14 @@
                     <span class="days">--</span> Days to go!
                 </div>
             </div>
-            
+
+            <div class="card weather-card">
+                <h3>🌤️ Weather Now</h3>
+                <div id="weather-widget" class="weather-widget">
+                    <p class="placeholder-text">Loading weather…</p>
+                </div>
+            </div>
+
             <div class="route-map">
                 <h3>Our Route</h3>
                 <div class="tz-map-wrap">
@@ -376,9 +383,10 @@
                 </div>
                 <p class="disclaimer">Direct beach swimming is usually easiest 1–2 hours either side of high tide. At low tide the lagoon retreats a long way — swimming from the beach gets hard, but it's a good time for a guided reef walk.</p>
 
-                <h4>🤿 Coral Snorkelling</h4>
+                <h4 id="coral-snorkelling">🤿 Coral Snorkelling</h4>
                 <p><strong>Best option: boat snorkelling near Mnemba Atoll.</strong> Once you're out at the reef, the beach tide matters far less — the operator picks the site based on tide, current, wind and visibility. Book a reputable operator and confirm departure the evening before, rather than planning around the table yourself.</p>
                 <p>Low tide isn't great for independent snorkelling from the hotel beach — the lagoon can get shallow with exposed coral and sea urchins. A guided reef walk suits that time better (wear reef shoes, never stand on living coral).</p>
+                <p class="section-link"><a href="#prep" onclick="app.goToSection('prep', 'packing-list'); return false;">🎒 Check your Packing List: reef-safe sunscreen, water shoes &amp; dry bag →</a></p>
 
                 <h4>🐠 Scuba Diving</h4>
                 <p>Dive centres plan around current, wind and visibility more than the exact tide. Reserve a flexible diving day rather than a fixed date, and confirm pickup the day before.</p>
@@ -422,6 +430,13 @@
                 <p class="disclaimer">General reference only — confirm requirements with a travel clinic.</p>
                 <div class="user-warning needs-user">Please select your name above to save your checklist.</div>
                 <div id="vax-list" class="checklist-container"></div>
+                <a href="https://mor.org.il/service/traveller/vaccinations-for-africa/" target="_blank" rel="noopener noreferrer" class="btn-primary resource-link">Vaccination requirements for Africa (MOR) →</a>
+            </div>
+
+            <div class="card">
+                <h3>🛂 Tanzania eVisa</h3>
+                <p class="disclaimer">Apply online in advance rather than relying on visa-on-arrival.</p>
+                <a href="https://www.ivisa.com/tanzania/evisa" target="_blank" rel="noopener noreferrer" class="btn-primary resource-link">Apply for Tanzania eVisa (iVisa) →</a>
             </div>
         </section>
 
