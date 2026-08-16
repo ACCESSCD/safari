@@ -203,16 +203,17 @@
             </div>
 
             <div class="quick-nav">
-                <button onclick="app.navTo('logistics')">Logistics & Info</button>
-                <button onclick="app.navTo('planning')">Trip Planning</button>
-                <button onclick="app.navTo('trip')">During the Trip</button>
-                <button onclick="app.navTo('extras')">Fun Extras</button>
+                <button onclick="app.navTo('logistics')">Trip Info</button>
+                <button onclick="app.navTo('planning')">Activities</button>
+                <button onclick="app.navTo('prep')">Pack/Shots</button>
+                <button onclick="app.navTo('trip')">Logs</button>
+                <button onclick="app.navTo('extras')">FunFacts</button>
             </div>
         </section>
 
         <!-- SECTION: LOGISTICS -->
         <section id="sec-logistics" class="view-section">
-            <h2>Logistics & Info</h2>
+            <h2>Trip Info</h2>
 
             <div class="card itinerary-card">
                 <h3>🗺️ Day-by-Day Itinerary</h3>
@@ -269,7 +270,7 @@
 
         <!-- SECTION: PLANNING -->
         <section id="sec-planning" class="view-section">
-            <h2>Planning</h2>
+            <h2>Activities</h2>
 
             <div class="card">
                 <h3>💡 Activity Wishlist</h3>
@@ -421,7 +422,7 @@
 
         <!-- SECTION: PREP -->
         <section id="sec-prep" class="view-section">
-            <h2>Prep</h2>
+            <h2>Pack/Shots</h2>
 
             <div class="card print-card">
                 <div class="flex-header">
@@ -450,7 +451,7 @@
 
         <!-- SECTION: DURING THE TRIP -->
         <section id="sec-trip" class="view-section">
-            <h2>During the Trip</h2>
+            <h2>Logs</h2>
 
             <div class="card">
                 <h3>🐾 Wildlife Tracker</h3>
@@ -501,7 +502,7 @@
 
         <!-- SECTION: EXTRAS -->
         <section id="sec-extras" class="view-section">
-            <h2>Fun Extras</h2>
+            <h2>FunFacts</h2>
 
             <div class="card">
                 <h3>🗣️ Swahili Cheat Sheet</h3>
@@ -523,11 +524,11 @@
     <!-- Bottom Navigation -->
     <nav class="bottom-nav no-print">
         <a href="#home" class="nav-item active" onclick="app.navTo('home'); return false;">Home</a>
-        <a href="#logistics" class="nav-item" onclick="app.navTo('logistics'); return false;">Info</a>
-        <a href="#planning" class="nav-item" onclick="app.navTo('planning'); return false;">Plan</a>
-        <a href="#prep" class="nav-item" onclick="app.navTo('prep'); return false;">Prep</a>
-        <a href="#trip" class="nav-item" onclick="app.navTo('trip'); return false;">Trip</a>
-        <a href="#extras" class="nav-item" onclick="app.navTo('extras'); return false;">Extras</a>
+        <a href="#logistics" class="nav-item" onclick="app.navTo('logistics'); return false;">Trip Info</a>
+        <a href="#planning" class="nav-item" onclick="app.navTo('planning'); return false;">Activities</a>
+        <a href="#prep" class="nav-item" onclick="app.navTo('prep'); return false;">Pack/Shots</a>
+        <a href="#trip" class="nav-item" onclick="app.navTo('trip'); return false;">Logs</a>
+        <a href="#extras" class="nav-item" onclick="app.navTo('extras'); return false;">FunFacts</a>
     </nav>
 
     <script src="js/data.js"></script>
