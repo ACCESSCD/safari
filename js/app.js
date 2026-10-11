@@ -2,6 +2,10 @@ const app = {
     currentUser: null,
 
     init() {
+        // The Mora is no longer a hotel option: clear its saved votes and comments
+        localStorage.removeItem('safari_hotel_votes_the_mora');
+        localStorage.removeItem('safari_entries_hotel_comments_the_mora');
+
         this.populateNameSelector();
         this.bindEvents();
         
