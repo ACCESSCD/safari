@@ -2,9 +2,13 @@ const app = {
     currentUser: null,
 
     init() {
-        // The Mora is no longer a hotel option: clear its saved votes and comments
+        // Hotel decision is settled: clear saved votes and comments for both options
         localStorage.removeItem('safari_hotel_votes_the_mora');
         localStorage.removeItem('safari_entries_hotel_comments_the_mora');
+        localStorage.removeItem('safari_hotel_votes_riu_jambo');
+        localStorage.removeItem('safari_entries_hotel_comments_riu_jambo');
+        localStorage.removeItem('safari_hotel_votes_riu_palace_swahili');
+        localStorage.removeItem('safari_entries_hotel_comments_riu_palace_swahili');
 
         this.populateNameSelector();
         this.bindEvents();
@@ -170,7 +174,6 @@ const app = {
         this.renderWishlist();
         this.renderEntries('game-drive-list', 'gamedrive');
         this.renderEntries('journal-list', 'journal');
-        this.renderZanzibarHotels();
         this.renderEntries('znz-shortlist-suggestions', 'znz_shortlist');
     },
 
@@ -182,66 +185,6 @@ const app = {
         Store.addEntry('znz_shortlist', { userName: this.currentUser, text: input.value });
         input.value = '';
         this.renderEntries('znz-shortlist-suggestions', 'znz_shortlist');
-    },
-
-    // Zanzibar Hotel Decision
-    renderZanzibarHotels() {
-        const container = document.getElementById('znz-hotels');
-        if (!container) return;
-        container.innerHTML = '';
-
-        AppData.zanzibarHotels.forEach(hotel => {
-            const votes = Store.getHotelVotes(hotel.id);
-            const hasVoted = this.currentUser && votes.includes(this.currentUser);
-            const comments = Store.getEntries(`hotel_comments_${hotel.id}`);
-
-            const wrap = document.createElement('div');
-            wrap.className = 'hotel-option';
-            wrap.innerHTML = `
-                <div class="hotel-option-header">
-                    <h4><a href="${hotel.link}" target="_blank" rel="noopener">${hotel.name}</a><br><small>${hotel.note}</small></h4>
-                    <button class="vote-btn ${hasVoted ? 'voted' : ''}" onclick="app.voteHotel('${hotel.id}')">▲ ${votes.length}</button>
-                </div>
-                <ul class="log-list hotel-comments" id="hotel-comments-${hotel.id}"></ul>
-                <div class="form-group">
-                    <input type="text" id="hotel-comment-${hotel.id}" placeholder="Add a comment...">
-                    <button onclick="app.addHotelComment('${hotel.id}')">Add</button>
-                </div>
-            `;
-            container.appendChild(wrap);
-
-            const list = wrap.querySelector(`#hotel-comments-${hotel.id}`);
-            comments.forEach(entry => {
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    <div class="entry-meta">${entry.userName} • ${new Date(entry.timestamp).toLocaleDateString()}</div>
-                    <div class="entry-content">${entry.text}</div>
-                    <button class="delete-btn" onclick="app.deleteHotelComment('${hotel.id}', '${entry.id}')">×</button>
-                `;
-                list.appendChild(li);
-            });
-        });
-    },
-
-    voteHotel(hotelId) {
-        if (!this.currentUser) return alert('Select your name first!');
-        Store.toggleHotelVote(hotelId, this.currentUser);
-        this.renderZanzibarHotels();
-    },
-
-    addHotelComment(hotelId) {
-        if (!this.currentUser) return alert('Select your name first!');
-        const input = document.getElementById(`hotel-comment-${hotelId}`);
-        if (!input.value) return;
-
-        Store.addEntry(`hotel_comments_${hotelId}`, { userName: this.currentUser, text: input.value });
-        input.value = '';
-        this.renderZanzibarHotels();
-    },
-
-    deleteHotelComment(hotelId, commentId) {
-        Store.deleteEntry(`hotel_comments_${hotelId}`, commentId);
-        this.renderZanzibarHotels();
     },
 
     renderChecklist(containerId, items, storeId) {
