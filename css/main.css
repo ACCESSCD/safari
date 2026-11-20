@@ -138,11 +138,11 @@ h4 {
 .lodge-list {
     list-style: none;
 }
-.lodge-list li {
-    padding: 6px 0;
+.lodge-list > li {
+    padding: 8px 0;
     border-bottom: 1px solid #eee;
 }
-.lodge-list li:last-child {
+.lodge-list > li:last-child {
     border-bottom: none;
 }
 .lodge-list a {
@@ -152,6 +152,18 @@ h4 {
 }
 .lodge-list a:hover {
     text-decoration: underline;
+}
+.lodge-facts {
+    list-style: none;
+    margin: 8px 0 2px;
+    padding: 8px 10px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    color: #444;
+}
+.lodge-facts li {
+    padding: 2px 0;
 }
 
 /* Home Elements */
