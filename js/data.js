@@ -36,7 +36,8 @@ const AppData = {
             { id: "g_meds", label: "Antimalarials & Prescription Meds" },
             { id: "g_adapter", label: "Type G Power Adapter" },
             { id: "g_powerbank", label: "Power Bank" },
-            { id: "g_cash", label: "Crisp USD bills (2013 or newer)" }
+            { id: "g_cash", label: "Crisp USD bills (2013 or newer)" },
+            { id: "g_raincoat", label: "Rain Coat / Packable Rain Jacket" }
         ]
     },
     wildlife: {
