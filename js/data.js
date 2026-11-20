@@ -19,7 +19,8 @@ const AppData = {
             { id: "s_layers", label: "Fleece/Jacket for cold mornings" },
             { id: "s_hat", label: "Wide-brimmed Hat" },
             { id: "s_shoes", label: "Closed-toe walking shoes" },
-            { id: "s_camera", label: "Camera & extra batteries" }
+            { id: "s_camera", label: "Camera & extra batteries" },
+            { id: "s_raincoat", label: "Rain Coat / Packable Rain Jacket" }
         ],
         zanzibar: [
             { id: "z_swim", label: "Swimwear (multiple)" },
@@ -36,8 +37,7 @@ const AppData = {
             { id: "g_meds", label: "Antimalarials & Prescription Meds" },
             { id: "g_adapter", label: "Type G Power Adapter" },
             { id: "g_powerbank", label: "Power Bank" },
-            { id: "g_cash", label: "Crisp USD bills (2013 or newer)" },
-            { id: "g_raincoat", label: "Rain Coat / Packable Rain Jacket" }
+            { id: "g_cash", label: "Crisp USD bills (2013 or newer)" }
         ]
     },
     wildlife: {
