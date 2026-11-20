@@ -1,4 +1,4 @@
-const CACHE_NAME = 'safari-trip-v2';
+const CACHE_NAME = 'safari-trip-v3';
 const APP_SHELL = [
     './',
     './index.html',
