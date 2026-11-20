@@ -446,8 +446,8 @@ const app = {
 
     // Countdown
     startCountdown() {
-        // Set trip date to some future date (e.g., Dec 1, 2026)
-        const tripDate = new Date('2026-12-01T00:00:00').getTime();
+        // Outbound flight ET0405 departs 22 Nov 2026 at 00:45
+        const tripDate = new Date('2026-11-22T00:45:00').getTime();
         const el = document.querySelector('#countdown-timer .days');
         
         const update = () => {
