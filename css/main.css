@@ -505,6 +505,15 @@ button:hover {
     color: #666;
     margin-bottom: 10px;
 }
+.song-excerpt {
+    margin: 0;
+    padding: 10px 14px;
+    border-left: 3px solid var(--secondary-color);
+    background: #f9f9f9;
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    line-height: 1.7;
+}
 
 /* Wishlist */
 .wishlist-input {
